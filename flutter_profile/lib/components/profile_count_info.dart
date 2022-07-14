@@ -8,11 +8,17 @@ class ProfileCountInfo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+        Spacer(),
         _buildInfo("50", "Posts"),
+        Spacer(),
         _buildLine(),
+        Spacer(),
         _buildInfo("19", "Likes"),
+        Spacer(),
         _buildLine(),
+        Spacer(),
         _buildInfo("3", "Share"),
+        Spacer(),
       ],
     );
   }
