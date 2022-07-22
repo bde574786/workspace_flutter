@@ -70,14 +70,62 @@ Widget titleSection = Container(
           ],
         ),
       ),
-      Icon(
-        Icons.star,
-        color: Colors.red,
-      ),
+      const LikeIcon(),
       const Text("41")
     ],
   ),
 );
+
+class LikeIcon extends StatelessWidget {
+  const LikeIcon({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.star,
+      color: Colors.white,
+    );
+  }
+}
+
+class ChangeIcon extends StatefulWidget {
+  const ChangeIcon({Key? key}) : super(key: key);
+
+  @override
+  State<ChangeIcon> createState() => _changeIconState();
+}
+
+class _changeIconState extends State<ChangeIcon> {
+  Color starColor = Colors.white;
+  int? count;
+
+  void changeColor() {
+    setState(() {
+      starColor = (starColor == Colors.white) ? Colors.red : Colors.white;
+      if (starColor == Colors.white) {
+      } else {}
+    });
+  }
+
+  void initState() {
+    starColor = Colors.white;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        _changeIconState();
+      },
+      child: Icon(
+        Icons.star,
+        color: starColor,
+      ),
+    );
+  }
+}
 
 Column _buildButtonColumn(Color color, IconData icon, String label) {
   return Column(
